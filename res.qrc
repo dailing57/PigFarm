@@ -1,0 +1,22 @@
+<RCC>
+    <qresource prefix="/">
+        <file>sourcefile/in.png</file>
+        <file>sourcefile/out.png</file>
+        <file>sourcefile/pig.png</file>
+        <file>sourcefile/in0.png</file>
+        <file>sourcefile/pigback.jpg</file>
+        <file>sourcefile/back.jpg</file>
+        <file>sourcefile/achieve.png</file>
+        <file>sourcefile/record0.png</file>
+        <file>sourcefile/coin.png</file>
+        <file>sourcefile/coinpig.png</file>
+        <file>sourcefile/back2.jpg</file>
+        <file>sourcefile/pause.png</file>
+        <file>sourcefile/continue.png</file>
+        <file>sourcefile/coins.png</file>
+        <file>sourcefile/cions2.png</file>
+        <file>sourcefile/pig2.png</file>
+        <file>sourcefile/virus.png</file>
+        <file>sourcefile/pigback0.jpg</file>
+    </qresource>
+</RCC>

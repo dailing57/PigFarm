@@ -1,0 +1,114 @@
+#include "sale.h"
+#include "ui_sale.h"
+
+sale::sale(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::sale)
+{
+    ui->setupUi(this);
+    this->setFixedSize(400,348);
+    ui->pushButton->setStyleSheet("background-color: rgb(244,214,214)");
+    this->setWindowTitle("养猪模拟");
+    this->setWindowIcon(QIcon(":/sourcefile/pig.png"));
+}
+
+sale::~sale()
+{
+    delete ui;
+}
+
+//猪圈号码
+void sale::on_lineEdit_editingFinished()
+{
+    QString s=ui->lineEdit->text();
+    if(s.isEmpty())
+        QMessageBox::warning(this,"","输入不可为空！"),safe=0,circlenum=-1;
+    else
+    {
+        int i;
+        for(i=0;i<s.size();i++)
+        {
+            if(s[i]<'0' ||s[i] > '9')
+                QMessageBox::warning(this,"","输入必须是数字！"),safe=0,circlenum=-1;
+        }
+        if(i==s.size())
+            safe = 1;
+        if(safe)
+        {
+            circlenum=ui->lineEdit->text().toInt();
+            if(circlenum<0 || circlenum>=100)
+                QMessageBox::warning(this,"","猪圈范围为0~99！"),safe=0,circlenum=-1;
+            else
+            {
+                safe = 1;
+                if(circlenum!=-1 && pignum!=-1)
+                {
+                    safe =2;
+                    Pigclass:: pig tmp = pig.n_circle_m_pig(circlenum,pignum);
+                    ui->label_4->setText(QString::number( tmp.weight));
+                    ui->label_9->setText(tmp.color);
+                    ui->label_7->setText(QString::number( pig.pigval(tmp.color,tmp.weight)));
+                }
+            }
+        }
+    }
+}
+
+//猪编号
+void sale::on_lineEdit_2_editingFinished()
+{
+    QString s=ui->lineEdit->text();
+    if(s.isEmpty())
+        QMessageBox::warning(this,"","输入不可为空！"),safe=0,pignum=-1;
+    else
+    {
+        int i;
+        for(i=0;i<s.size();i++)
+        {
+            if(s[i]<'0' ||s[i] > '9')
+                QMessageBox::warning(this,"","输入必须是数字！"),safe=0,pignum=-1;
+        }
+        if(i==s.size())
+            safe = 1;
+        if(safe)
+        {
+            pignum=ui->lineEdit_2->text().toInt();
+            if(pignum>=pig.circles[circlenum].sum_pig)
+                QMessageBox::warning(this,"","这个猪圈没有这个编号的猪"),safe=0,pignum=-1;
+            else
+            {
+                safe=1;
+                if(circlenum!=-1 && pignum!=-1)
+                {
+                    safe=2;
+                    Pigclass:: pig tmp = pig.n_circle_m_pig(circlenum,pignum);
+                    ui->label_4->setText(QString::number( tmp.weight));
+                    ui->label_9->setText(tmp.color);
+                    ui->label_7->setText(QString::number( pig.pigval(tmp.color,tmp.weight)));
+                }
+            }
+        }
+    }
+}
+
+void sale:: closeEvent(QCloseEvent*event)
+{
+    timer->start(1000);
+    this->close();
+}
+void sale::on_pushButton_clicked()
+{
+    if(safe==2)
+    {
+        Pigclass:: pig tmp = pig.n_circle_m_pig(circlenum,pignum);
+        coins+=pig.pigval(tmp.color,tmp.weight);
+        rec.addrecord(rec.currecord,circlenum,pignum,tmp.weight,tmp.color,"出售",curtime);
+        pig.subpig(circlenum,pignum);
+        timer->start(1000);
+        this->close();
+    }
+    else
+    {
+        QMessageBox::warning(this,"","输入信息有误！");
+    }
+}
