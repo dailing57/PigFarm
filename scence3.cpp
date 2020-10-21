@@ -15,6 +15,7 @@ scence3::scence3(QWidget *parent) :
     ui->tableWidget->setHorizontalHeaderLabels(QStringList()<<"流水号"<<"猪圈号"<<"标号"<<"体重"<<"花色"<<"动态"<<"日期");
 
     ui->tableWidget->setRowCount(rec.currecord);
+    qDebug()<<rec.recordnum[0]<<endl;
     //qDebug()<<rec.currecord<<" "<<rec.circlenum[0]<<" "<<rec.pignum[0]<<" "<<rec.weight[0]<<" "<<rec.color[0]<<" "<<rec.state[0]<<" "<<1;
     for(int i=0;i<rec.currecord;i++)
     {

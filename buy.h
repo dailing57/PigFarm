@@ -5,6 +5,7 @@
 #include "pig_info.h"
 #include "scence3.h"
 #include "record_info.h"
+#include "settings.h"
 
 #include <QString>
 #include <QTextStream>
@@ -34,9 +35,11 @@ public:
     explicit Buy(QWidget *parent = nullptr);
     ~Buy();
     double singleval,weight,cost;
-    int realbuy,num,colorstate,date;
+    int realbuy,num,colorstate,date,allpig;
 protected:
     void closeEvent(QCloseEvent*event);
+signals:
+    void bought();
 private slots:
     void on_radioButton_clicked();
 
@@ -49,6 +52,8 @@ private slots:
     void on_pushButton_clicked();
 
     void on_lineEdit_2_editingFinished();
+
+    void on_lineEdit_3_editingFinished();
 
 private:
     Ui::Buy *ui;

@@ -43,6 +43,12 @@ void Pigclass:: subpig(int circle_num,int pig_num)
             }
         }
         ptr->next = ptr->next->next;
+        ptr = ptr->next;
+        while(ptr!=NULL)
+        {
+            ptr->num--;
+            ptr=ptr->next;
+        }
         circles[circle_num].sum_pig--;
     }
 }
@@ -54,7 +60,7 @@ void Pigclass:: grow()
         pig * pigptr = circles[i].head;
         while(pigptr != NULL)
         {
-            double d = qrand()%12+1;
+            double d = qrand()%13;
             d/=10;
             pigptr->weight+=d;
             pigptr = pigptr->next;
@@ -74,6 +80,14 @@ Pigclass::pig Pigclass:: n_circle_m_pig(int n,int m)
     tmp.color=t->color;
     tmp.weight=t->weight;
     return tmp;
+}
+
+int Pigclass:: getsum()
+{
+    int res=0;
+    for(int i=0;i<100;i++)
+        res+=circles[i].sum_pig;
+    return res;
 }
 
 double Pigclass:: pigval(QString c,double w)

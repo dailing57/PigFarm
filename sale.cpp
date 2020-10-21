@@ -37,7 +37,7 @@ void sale::on_lineEdit_editingFinished()
         {
             circlenum=ui->lineEdit->text().toInt();
             if(circlenum<0 || circlenum>=100)
-                QMessageBox::warning(this,"","猪圈范围为99~100！"),safe=0,circlenum=-1;
+                QMessageBox::warning(this,"","猪圈范围为0~99！"),safe=0,circlenum=-1;
             else
             {
                 safe = 1;
@@ -48,7 +48,6 @@ void sale::on_lineEdit_editingFinished()
                     ui->label_4->setText(QString::number( tmp.weight));
                     ui->label_9->setText(tmp.color);
                     ui->label_7->setText(QString::number( pig.pigval(tmp.color,tmp.weight)));
-
                 }
             }
         }
@@ -75,7 +74,7 @@ void sale::on_lineEdit_2_editingFinished()
         {
             pignum=ui->lineEdit_2->text().toInt();
             if(pignum>=pig.circles[circlenum].sum_pig)
-                QMessageBox::warning(this,"","这个猪圈总共只有"+QString::number(pig.circles[circlenum].sum_pig)+"头猪"),safe=0,pignum=-1;
+                QMessageBox::warning(this,"","这个猪圈没有这个编号的猪"),safe=0,pignum=-1;
             else
             {
                 safe=1;
@@ -105,6 +104,7 @@ void sale::on_pushButton_clicked()
         coins+=pig.pigval(tmp.color,tmp.weight);
         rec.addrecord(rec.currecord,circlenum,pignum,tmp.weight,tmp.color,"出售",curtime);
         pig.subpig(circlenum,pignum);
+        emit sold();
         timer->start(1000);
         this->close();
     }

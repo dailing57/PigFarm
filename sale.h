@@ -18,6 +18,8 @@ public:
 
     int circlenum=-1, pignum=-1;
     int safe = 0;
+signals:
+    void sold();
 protected:
     void closeEvent(QCloseEvent*event);
 private slots:

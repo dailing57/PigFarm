@@ -18,5 +18,10 @@
         <file>sourcefile/pig2.png</file>
         <file>sourcefile/virus.png</file>
         <file>sourcefile/pigback0.jpg</file>
+        <file>sourcefile/help.png</file>
+        <file>sourcefile/read.png</file>
+        <file>sourcefile/save.png</file>
+        <file>sourcefile/setting.png</file>
+        <file>sourcefile/疫苗.png</file>
     </qresource>
 </RCC>

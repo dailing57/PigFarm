@@ -20,7 +20,7 @@
 #include <QMessageBox>
 #include <QMainWindow>
 extern record rec;
-
+extern record recv;
 namespace Ui {
 class scence3;
 }

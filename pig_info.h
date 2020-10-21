@@ -18,7 +18,7 @@
 
 extern int curtime;
 extern QTimer *timer;
-extern int coins;
+extern int coins,haverec;
 
 class Pigclass
 {
@@ -60,11 +60,16 @@ public:
 
     void grow();
 
+    void change();
+
     void addpig(int circle_num, QString c, double w);
 
     void subpig(int circle_num,int pig_num);
 
     double pigval(QString c,double w);
+
+    int getsum();
+
     pig n_circle_m_pig(int n,int m);
 };
 

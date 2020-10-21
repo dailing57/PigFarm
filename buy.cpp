@@ -8,7 +8,7 @@ Buy::Buy(QWidget *parent) :
     ui(new Ui::Buy)
 {
     ui->setupUi(this);
-    this->setFixedSize(401,491);
+    this->setFixedSize(401,561);
     this->setWindowTitle("养猪模拟");
     this->setWindowIcon(QIcon(":/sourcefile/pig.png"));
     singleval=-1;
@@ -18,6 +18,7 @@ Buy::Buy(QWidget *parent) :
     num=-1;
     colorstate=-1;
     date=-1;
+    allpig=-1;
 
 }
 
@@ -32,7 +33,7 @@ void Buy::on_radioButton_clicked()
     colorstate = 1;
     singleval = 15;
     ui->label_7->setText("15");
-    cost = weight*singleval;
+    cost = weight*singleval*allpig;
     QString res=QString::number(cost);
     ui->label_9->setText(res);
 }
@@ -42,7 +43,7 @@ void Buy::on_radioButton_2_clicked()
     colorstate = 2;
     singleval = 6;
     ui->label_7->setText("6");
-    cost = weight*singleval;
+    cost = weight*singleval*allpig;
     QString res=QString::number(cost);
     ui->label_9->setText(res);
 }
@@ -52,7 +53,7 @@ void Buy::on_radioButton_3_clicked()
     colorstate = 3;
     singleval = 7;
     ui->label_7->setText("7");
-    cost = weight*singleval;
+    cost = weight*singleval*allpig;
     QString res=QString::number(cost);
     ui->label_9->setText(res);
 }
@@ -66,7 +67,7 @@ void Buy::on_lineEdit_editingFinished()
      }
      else
      {
-         cost = weight*singleval;
+         cost = weight*singleval*allpig;
          QString res=QString::number(cost);
          ui->label_9->setText(res);
      }
@@ -92,18 +93,22 @@ void Buy::on_pushButton_clicked()
     else
         scolor = "花";
 
-   if(weight == 0 || colorstate == -1 || num == -1 )
+   if(weight == 0 || colorstate == -1 || num == -1 || allpig ==-1)
        QMessageBox::warning(this,"","猪的信息不可以为空！");
-   else if(colorstate == 1 && num < 90)
-       QMessageBox::warning(this,"","为了和平，黑猪只可以再90~100号猪圈！");
+   else if(colorstate == 1 && (num < black0 || num>black1))
+       QMessageBox::warning(this,"","为了防止打架，黑猪只可以在"+QString::number(black0)+"~"+QString::number(black1)+"号猪圈！可在“设置”中修改。");
    else if(pig.circles[num].sum_pig==10)
        QMessageBox::warning(this,"","一个猪圈最多10只猪");
    else
    {
-       pig.addpig(num,scolor,weight);
-       rec.addrecord(rec.currecord,num,pig.circles[num].sum_pig,weight,scolor,"购买",curtime);
+       for(int i=0;i<allpig;i++)
+       {
+            pig.addpig(num,scolor,weight);
+            rec.addrecord(rec.currecord,num,pig.circles[num].sum_pig,weight,scolor,"购买",curtime);
+       }
        timer->start(1000);
        coins -= cost;
+       emit bought();
        this->close();
        //delete (this);
    }
@@ -117,3 +122,12 @@ void Buy::closeEvent(QCloseEvent *event)
     //delete(this);
 }
 
+
+void Buy::on_lineEdit_3_editingFinished()
+{
+    allpig = ui->lineEdit_3->text().toInt();
+    if(allpig>10)
+    {
+        QMessageBox::warning(this,"","一个猪圈最多10只猪");
+    }
+}

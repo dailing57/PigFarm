@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     buy.cpp \
+    help.cpp \
     main.cpp \
     mainwindow.cpp \
     pig_info.cpp \
@@ -24,24 +25,32 @@ SOURCES += \
     sale.cpp \
     scence3.cpp \
     scene1.cpp \
+    settings.cpp \
+    virus.cpp \
     watch.cpp
 
 HEADERS += \
     buy.h \
+    help.h \
     mainwindow.h \
     pig_info.h \
     record_info.h \
     sale.h \
     scence3.h \
     scene1.h \
+    settings.h \
+    virus.h \
     watch.h
 
 FORMS += \
     buy.ui \
+    help.ui \
     mainwindow.ui \
     sale.ui \
     scence3.ui \
     scene1.ui \
+    settings.ui \
+    virus.ui \
     watch.ui
 
 # Default rules for deployment.

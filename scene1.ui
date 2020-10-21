@@ -33,7 +33,7 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>300</y>
+     <y>250</y>
      <width>121</width>
      <height>61</height>
     </rect>
@@ -64,7 +64,7 @@
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>300</y>
+     <y>250</y>
      <width>121</width>
      <height>61</height>
     </rect>
@@ -95,7 +95,7 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>150</y>
+     <y>160</y>
      <width>121</width>
      <height>61</height>
     </rect>
@@ -126,7 +126,7 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>450</y>
+     <y>340</y>
      <width>121</width>
      <height>61</height>
     </rect>
@@ -140,11 +140,11 @@
     </font>
    </property>
    <property name="text">
-    <string>成就</string>
+    <string>隔离</string>
    </property>
    <property name="icon">
     <iconset resource="res.qrc">
-     <normaloff>:/sourcefile/achieve.png</normaloff>:/sourcefile/achieve.png</iconset>
+     <normaloff>:/sourcefile/疫苗.png</normaloff>:/sourcefile/疫苗.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -221,7 +221,7 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>60</y>
      <width>71</width>
      <height>51</height>
@@ -264,7 +264,7 @@
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>150</y>
+     <y>160</y>
      <width>121</width>
      <height>61</height>
     </rect>
@@ -295,7 +295,7 @@
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>450</y>
+     <y>340</y>
      <width>121</width>
      <height>61</height>
     </rect>
@@ -322,6 +322,130 @@
     </size>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton_10">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>430</y>
+     <width>121</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>方正姚体</family>
+     <pointsize>15</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>帮助</string>
+   </property>
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/sourcefile/help.png</normaloff>:/sourcefile/help.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_11">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>430</y>
+     <width>121</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>方正姚体</family>
+     <pointsize>15</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>设置</string>
+   </property>
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/sourcefile/setting.png</normaloff>:/sourcefile/setting.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_12">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>520</y>
+     <width>121</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>方正姚体</family>
+     <pointsize>15</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>读档</string>
+   </property>
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/sourcefile/read.png</normaloff>:/sourcefile/read.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_13">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>520</y>
+     <width>121</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>方正姚体</family>
+     <pointsize>15</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>保存</string>
+   </property>
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/sourcefile/save.png</normaloff>:/sourcefile/save.png</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>40</width>
+     <height>40</height>
+    </size>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>pushButton_6</zorder>
   <zorder>pushButton</zorder>
@@ -334,6 +458,10 @@
   <zorder>pushButton_7</zorder>
   <zorder>pushButton_8</zorder>
   <zorder>pushButton_9</zorder>
+  <zorder>pushButton_10</zorder>
+  <zorder>pushButton_11</zorder>
+  <zorder>pushButton_12</zorder>
+  <zorder>pushButton_13</zorder>
  </widget>
  <resources>
   <include location="res.qrc"/>

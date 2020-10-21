@@ -243,6 +243,25 @@
     <pixmap resource="res.qrc">:/sourcefile/pigback0.jpg</pixmap>
    </property>
   </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>60</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>数据输入后请按回车</string>
+   </property>
+  </widget>
   <zorder>label_10</zorder>
   <zorder>label</zorder>
   <zorder>widget</zorder>
@@ -251,6 +270,7 @@
   <zorder>widget_4</zorder>
   <zorder>widget_5</zorder>
   <zorder>pushButton</zorder>
+  <zorder>label_11</zorder>
  </widget>
  <resources>
   <include location="res.qrc"/>

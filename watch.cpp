@@ -17,6 +17,8 @@ watch::~watch()
     delete ui;
 }
 
+
+
 void watch::on_lineEdit_editingFinished()
 {
     ui->tableWidget->clear();
