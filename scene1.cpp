@@ -145,17 +145,17 @@ void scene1::on_pushButton_13_clicked()
         aStream<<rec.recordnum[i]<<rec.circlenum[i]<<rec.pignum[i]<<rec.date[i]<<rec.weight[i]<<rec.color[i]<<rec.state[i];
     }
 
-    for(int i=0;i<100;i++)
-    {
-        for(int j=0;j<10;j++)
-        {
-            aStream << vis[i][j];
-        }
-    }
-    for(int i=0;i<100;i++)
-    {
-        aStream << vis0[i];
-    }
+//    for(int i=0;i<100;i++)
+//    {
+//        for(int j=0;j<10;j++)
+//        {
+//            aStream << vis[i][j];
+//        }
+//    }
+//    for(int i=0;i<100;i++)
+//    {
+//        aStream << vis0[i];
+//    }
     for(int i=0;i<100;i++)
     {
         Pigclass::pig *ptr = pig.circles[i].head;
@@ -166,6 +166,7 @@ void scene1::on_pushButton_13_clicked()
             ptr=ptr->next;
         }
     }
+    aStream<<black0<<black1;
 }
 
 void scene1::on_pushButton_4_clicked()
@@ -189,6 +190,7 @@ void scene1::on_pushButton_12_clicked()
     int records;
     aStream >> records;
     qDebug()<<curtime<<" "<<coins<<" "<<infect<<" "<<sa<<" "<<rec.currecord<<endl;
+    ui->label_3->setText(QString::number(coins));
     for(int i=0;i<records;i++)
     {
         //qDebug()<<rec.currecord<<endl;
@@ -209,17 +211,17 @@ void scene1::on_pushButton_12_clicked()
         recv.addrecordv(recordnum,circlenum,pignum,weight,color,state,date);
     }
 
-    for(int i=0;i<100;i++)
-    {
-        for(int j=0;j<10;j++)
-        {
-            aStream >> vis[i][j];
-        }
-    }
-    for(int i=0;i<100;i++)
-    {
-        aStream >> vis0[i];
-    }
+//    for(int i=0;i<100;i++)
+//    {
+//        for(int j=0;j<10;j++)
+//        {
+//            aStream >> vis[i][j];
+//        }
+//    }
+//    for(int i=0;i<100;i++)
+//    {
+//        aStream >> vis0[i];
+//    }
     for(int i=0;i<100;i++)
     {
         Pigclass::pig *ptr = new Pigclass::pig;
@@ -243,6 +245,7 @@ void scene1::on_pushButton_12_clicked()
             }
         }
     }
+    aStream>>black0>>black1;
 }
 
 void scene1::on_pushButton_11_clicked()
